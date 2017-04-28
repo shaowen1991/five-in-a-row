@@ -1,5 +1,5 @@
 # Project Name #
-
+Five In A Row 五子棋
 <!-- 
 > This material was originally posted [here](http://www.quora.com/What-is-Amazons-approach-to-product-development-and-product-management). It is reproduced here for posterities sake.
 
@@ -17,28 +17,28 @@ Once the project moves into development, the press release can be used as a touc
  -->
  
 ## Heading ##
-  > Name the product in a way the reader (i.e. your target customers) will understand.
+  > Five In A Row, is an abstract strategy board game. Also called Gobang or Gomoku.
 
 ## Sub-Heading ##
-  > Describe who the market for the product is and what benefit they get. One sentence only underneath the title.
+  > People who enjoy playing board game is our target costumer.
 
 ## Summary ##
-  > Give a summary of the product and the benefit. Assume the reader will not read anything else so make this paragraph good.
+  > Five In A Row is a famous board game in Asia. The goal of FIAR is the forming a unbroken row of five stones. our web-based Five In A Row will allow users to play with each other, and record game results in the Score leading board.
 
 ## Problem ##
-  > Describe the problem your product solves.
+  > FIAR gives a solution when you really need to kill some time.
 
 ## Solution ##
-  > Describe how your product elegantly solves the problem.
+  > Play it! And compete with others!
 
 ## Quote from You ##
-  > A quote from a spokesperson in your company.
+  > You will love this game.
 
 ## How to Get Started ##
-  > Describe how easy it is to get started.
+  > By click on "New Game", type in two players name, and start a game. 
 
 ## Customer Quote ##
-  > Provide a quote from a hypothetical customer that describes how they experienced the benefit.
+  > This board is bored. I wanna play real video game.
 
 ## Closing and Call to Action ##
-  > Wrap it up and give pointers where the reader should go next.
+  > Go try it!

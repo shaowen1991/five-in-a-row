@@ -11,21 +11,37 @@ db.once('open', function() {
   console.log('mongoose connected successfully');
 });
 
-var itemSchema = mongoose.Schema({
-  quantity: Number,
-  description: String
+var gameSchema = mongoose.Schema({
+  p1: String,
+  p2: String,
+  winner: String,
 });
 
-var Item = mongoose.model('Item', itemSchema);
+var scoreSchema = mongoose.Schema({
+  player: String,
+  score: Number
+});
 
-var selectAll = function(callback) {
-  Item.find({}, function(err, items) {
-    if(err) {
-      callback(err, null);
-    } else {
-      callback(null, items);
-    }
-  });
-};
+var game = mongoose.model('Game', gameSchema);
+var score = mongoose.model('Score', scoreSchema);
 
-module.exports.selectAll = selectAll;
+game.newGame = () => {
+
+}
+
+game.getGame = () => {
+
+}
+
+score.newScore = () => {
+
+}
+
+score.getScore = () => {
+
+}
+
+module.exports.game = game;
+module.exports.score = score;
+
+
