@@ -15,6 +15,7 @@ var gameSchema = mongoose.Schema({
   p1: String,
   p2: String,
   winner: String,
+  created_at: String
 });
 
 var scoreSchema = mongoose.Schema({
@@ -25,20 +26,48 @@ var scoreSchema = mongoose.Schema({
 var game = mongoose.model('Game', gameSchema);
 var score = mongoose.model('Score', scoreSchema);
 
-game.newGame = () => {
-
+game.putGameRecord = (record, res) => {
+  var newGameRecord = new game(record);
+  newGameRecord.save((err, newGameRecord) => {
+    if (err) console.log(err);
+  });
 }
 
-game.getGame = () => {
-
+score.putScore = (newWinner, res) => {
+  score.findOneAndUpdate(
+    newWinner,
+    {$inc: {score: 1}},
+    {upsert: true},
+    (err, newScore) => {
+      if (err) console.log(err);
+    }
+  );
 }
 
-score.newScore = () => {
-
+game.getGameRecord = (gamesData) => {
+  return game.find()
+    .sort({'-created_at': -1})
+    .exec((err, data) => {
+      if (err) {
+        console.log("DB getGameRecord fail");
+        res.sendStatus(500);
+      }
+      console.log("DB getGameRecord");
+      gamesData.games = data;
+    })
 }
 
-score.getScore = () => {
-
+score.getScore = (gamesData) => {
+  return score.find()
+    .sort({'-created_at': -1})
+    .exec((err, data) => {
+      if (err) {
+        console.log("DB getScore fail");
+        res.sendStatus(500);
+      }
+      console.log("DB getScore");
+      gamesData.scores = data;
+    });
 }
 
 module.exports.game = game;
