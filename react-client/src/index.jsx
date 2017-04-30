@@ -136,20 +136,36 @@ class App extends React.Component {
   }
 
   render() {
+    var classString;
+    if (this.state.currentPlayer === '') {
+      classString = "homecell-0";
+    } else if (this.state.currentPlayer === this.state.p1) {
+      classString = "homecell-1";
+    } else if (this.state.currentPlayer === this.state.p2) {
+      classString = "homecell-2";
+    } else {
+      classString = "homecell-0";
+    }
     return (<div>
-      <h1>Five In A Row 五子棋</h1>
-      <button onClick={this.newGameOnClick}> New Game </button>
+      <div className="navbar">
+        <h2 className="col-md-8 title">Five In A Row 五子棋</h2>
+        <button className="col-md-1 button"onClick={this.newGameOnClick}> New Game </button>
+      </div>
 
-      <div className="media">
-        <div>
+      <div className="container">
+
+        <div className="col-md-8">
+          <Grid board={this.state.board} cellOnClick={this.cellOnClick}/>
+          <a className={classString}></a>
           <h4>{this.state.currentPlayer} {this.state.hasWinnerState}</h4>
-          <Grid className="col-md-7" board={this.state.board} cellOnClick={this.cellOnClick}/>
-        </div>
-        <div className="col-md-5">
           <div>Player 1: {this.state.p1} ========== Player 2 : {this.state.p2} </div>
+        </div>
+
+        <div className="col-md-4">
           <GameRecords games={this.state.games}/>
           <ScoresTable scores={this.state.scores}/>
         </div>
+
       </div>
     </div>)
   }

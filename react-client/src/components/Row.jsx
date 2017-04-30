@@ -2,11 +2,11 @@ import React from 'react';
 import Cell from './Cell.jsx';
 
 const Row = (props) => (
-  <span className="row">
+  <div className="gridrow">
     {props.row.map((cell, index) => 
-      <Cell cell={cell} rowIndex={props.rowIndex} colIndex={index} cellOnClick={props.cellOnClick}/>
+      <Cell key={index} cell={cell} rowIndex={props.rowIndex} colIndex={index} cellOnClick={props.cellOnClick}/>
     )}
-  </span>
+  </div>
 )
 
 export default Row;

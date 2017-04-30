@@ -5,7 +5,7 @@ import Row from './Row.jsx';
 const Grid = (props) => (
   <div className="grid">
     {props.board.map((row, index) => 
-      <Row row={row} rowIndex={index} index cellOnClick={props.cellOnClick}/>
+      <Row key={index} row={row} rowIndex={index} index cellOnClick={props.cellOnClick}/>
     )}
   </div>
 )

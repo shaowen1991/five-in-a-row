@@ -1,19 +1,22 @@
 .grid {
-  width: 570px;
-  height: 570px;
+  width: 572px;
+  height: 572px;
   border-style:solid;
-  background-color: #E8ECA1;
+  border-width: 0.5px;
+  background-color:#EBECDE;
 }
 
-.row {
+.gridrow {
+  min-width: 570px;
+  min-height: 30px;
   width: 570px;
   height: 30px;
 }
 
 .cell-0 {
   float: left;
-  width: 28px;
-  height: 28px;
+  width: 30px;
+  height: 30px;
   border-style:solid;
   border-width: 1px;
   border-color: black;
@@ -21,8 +24,8 @@
 
 .cell-1 {
   float: left;
-  width: 28px;
-  height: 28px;
+  width: 30px;
+  height: 30px;
   border-style:solid;
   border-width: 1px;
   border-color: black;
@@ -32,10 +35,53 @@
 
 .cell-2 {
   float: left;
-  width: 28px;
-  height: 28px;
+  width: 30px;
+  height: 30px;
   border-style:solid;
   border-width: 1px;
+  border-color: black;
+  background-image: url("white.png");
+  background-size: contain;
+}
+
+.navbar {
+  background: #EBECDE;
+  margin-bottom: 20px;
+  height: 50px;
+}
+.title{
+  left: 300px;
+  size: contain;
+  margin-left: auto;
+  margin-top: 6px;
+}
+.button{
+  top: 10px;
+}
+
+
+.homecell-0 {
+  float: left;
+  margin: 10px;
+  width: 20px;
+  height: 20px;
+}
+
+.homecell-1 {
+  float: left;
+  margin:10px;
+  width: 20px;
+  height: 20px;
+  border-color: black;
+  background-image: url("black.png");
+  background-size: contain;
+}
+
+.homecell-2 {
+  float: left;
+  margin: 10px;
+  width: 20px;
+  height: 20px;
   border-color: black;
   background-image: url("white.png");
   background-size: contain;
