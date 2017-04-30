@@ -46,7 +46,7 @@ score.putScore = (newWinner, res) => {
 
 game.getGameRecord = (gamesData) => {
   return game.find()
-    .sort({'-created_at': -1})
+    .sort('-created_at')
     .exec((err, data) => {
       if (err) {
         console.log("DB getGameRecord fail");
@@ -59,7 +59,7 @@ game.getGameRecord = (gamesData) => {
 
 score.getScore = (gamesData) => {
   return score.find()
-    .sort({'-created_at': -1})
+    .sort('-score')
     .exec((err, data) => {
       if (err) {
         console.log("DB getScore fail");
