@@ -21,6 +21,7 @@
     "angular": "^1.6.3",
     "bluebird": "^3.5.0",
     "body-parser": "^1.17.1",
+    "bootstrap": "^3.3.7",
     "craftyjs": "^0.8.0",
     "css-loader": "^0.28.0",
     "express": "^4.15.0",

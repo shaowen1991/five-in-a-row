@@ -2,7 +2,7 @@
   width: 570px;
   height: 570px;
   border-style:solid;
-  background-color: darkkhaki;
+  background-color: #E8ECA1;
 }
 
 .row {
@@ -10,7 +10,7 @@
   height: 30px;
 }
 
-.cell {
+.cell-0 {
   float: left;
   width: 28px;
   height: 28px;
@@ -19,13 +19,24 @@
   border-color: black;
 }
 
-.gameScores {
+.cell-1 {
   float: left;
+  width: 28px;
+  height: 28px;
+  border-style:solid;
+  border-width: 1px;
+  border-color: black;
+  background-image: url("black.png");
+  background-size: contain;
 }
 
-.gameBoard {
+.cell-2 {
   float: left;
-}
-
-.app {
+  width: 28px;
+  height: 28px;
+  border-style:solid;
+  border-width: 1px;
+  border-color: black;
+  background-image: url("white.png");
+  background-size: contain;
 }
