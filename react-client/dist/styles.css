@@ -54,8 +54,10 @@
   size: contain;
   margin-left: auto;
   margin-top: 6px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
 }
 .button{
+  width: 190px;
   top: 10px;
 }
 
@@ -85,4 +87,8 @@
   border-color: black;
   background-image: url("white.png");
   background-size: contain;
+}
+
+.gamescore {
+  font-family: Georgia, 'Times New Roman', Times, serif;
 }

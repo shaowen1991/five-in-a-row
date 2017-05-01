@@ -1,13 +1,13 @@
-// ROWS - run from left to right
-// --------------------------------------------------------------
-//
-// test if a specific row on this board contains a win
+
 class GameTester {
   constructor(board) {
     this.board = board;
   }
-
-  hasRowWinAt(player, rowIndex) {
+  // ROWS - run from left to right
+  // --------------------------------------------------------------
+  //
+  // test if a specific row on this board contains a win
+  hasRowWinAt(player, rowIndex, rule) {
     let countPiece = 0;
     for (let rowElement of this.board[rowIndex]) {
       if (rowElement === player) {
@@ -15,7 +15,7 @@ class GameTester {
       } else {
         countPiece = 0;
       }
-      if (countPiece === 5) {
+      if (countPiece === rule) {
         return true;
       }
     }
@@ -23,10 +23,10 @@ class GameTester {
   }
 
   // test if any rows on this board contain Wins
-  hasAnyRowWins(player) {
+  hasAnyRowWins(player, rule = 5) {
     let wins = false;
     for (let rowIndex = 0; rowIndex < 19; rowIndex++) {
-      wins = wins || this.hasRowWinAt(player, rowIndex);
+      wins = wins || this.hasRowWinAt(player, rowIndex, rule);
     }
     return wins; 
   }
@@ -37,7 +37,7 @@ class GameTester {
   // --------------------------------------------------------------
   //
   // test if a specific column on this board contains a Win
-  hasColWinAt(player, colIndex) {
+  hasColWinAt(player, colIndex, rule) {
     let countPiece = 0;
     for (let row of this.board) {
       if (row[colIndex] === player) {
@@ -46,7 +46,7 @@ class GameTester {
         countPiece = 0;
       }
       
-      if (countPiece === 5) {
+      if (countPiece === rule) {
         return true;
       }
     }
@@ -54,10 +54,10 @@ class GameTester {
   }
 
   // test if any columns on this board contain Wins
-  hasAnyColWins(player) {
+  hasAnyColWins(player, rule = 5) {
     let wins = false;
     for (let colIndex = 0; colIndex < 19; colIndex++) {
-      wins = wins || this.hasColWinAt(player, colIndex);
+      wins = wins || this.hasColWinAt(player, colIndex, rule);
     }
     return wins; 
   }
@@ -68,7 +68,7 @@ class GameTester {
   // --------------------------------------------------------------
   //
   // test if a specific major diagonal on this board contains a Win
-  hasMajorDiagonalWinAt(player, majorDiagonalColumnIndexAtFirstRow) {
+  hasMajorDiagonalWinAt(player, majorDiagonalColumnIndexAtFirstRow, rule) {
     let countPiece = 0;
     let rowIndex = 0;
     let colIndex = majorDiagonalColumnIndexAtFirstRow;
@@ -80,7 +80,7 @@ class GameTester {
       } else {
         countPiece = 0;
       }
-      if (countPiece === 5) {
+      if (countPiece === rule) {
         return true;
       }
       rowIndex++;
@@ -90,13 +90,13 @@ class GameTester {
   }
 
   // test if any major diagonals on this board contain Wins
-  hasAnyMajorDiagonalWins(player) {
+  hasAnyMajorDiagonalWins(player, rule = 5) {
     let wins = false;
     // console.log('start');
     //checking the matrix by iterating through each col in the first row, starting from -(n-1)
     //because that will cover the slots in the bottom left corner of the matrix
     for (let colIndex = -18; colIndex < 19; colIndex++) {
-      wins = wins || this.hasMajorDiagonalWinAt(player, colIndex);
+      wins = wins || this.hasMajorDiagonalWinAt(player, colIndex, rule);
     }
     // console.log('end');
     return wins;
@@ -107,7 +107,7 @@ class GameTester {
   // --------------------------------------------------------------
   //
   // test if a specific minor diagonal on this board contains a Win
-  hasMinorDiagonalWinAt(player, minorDiagonalColumnIndexAtFirstRow) {
+  hasMinorDiagonalWinAt(player, minorDiagonalColumnIndexAtFirstRow, rule) {
     let countPiece = 0;
     let rowIndex = 0;
     let colIndex = minorDiagonalColumnIndexAtFirstRow;
@@ -117,7 +117,7 @@ class GameTester {
       } else {
         countPiece = 0;
       }
-      if (countPiece === 5) {
+      if (countPiece === rule) {
         return true;
       }
       rowIndex++;
@@ -127,12 +127,12 @@ class GameTester {
   }
 
   // test if any minor diagonals on this board contain Wins
-  hasAnyMinorDiagonalWins(player) {
+  hasAnyMinorDiagonalWins(player, rule = 5) {
     let wins = false;
     //checking the matrix by iterating through each col in the first row, starting from 0 to 2n-1
     //because that will cover the slots in the bottom right corner of the matrix
     for (let colIndex = 0; colIndex < 19 * 2 - 1; colIndex++) {
-      wins = wins || this.hasMinorDiagonalWinAt(player, colIndex);
+      wins = wins || this.hasMinorDiagonalWinAt(player, colIndex, rule);
     }
     return wins;
   }
@@ -141,5 +141,3 @@ class GameTester {
 
 
 module.exports = GameTester;
-
-
