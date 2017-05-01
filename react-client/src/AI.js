@@ -7,27 +7,31 @@ var AI_main = (board) => {
 
   for (var x = 0; x < 19; x++) {
     for (var y = 0; y < 19; y++) {
+      //do something only when [x, y] is empty cell
       if (board[x][y] === 0) {
-        var moveBoard_AI = copyMatrix(board);
+        var moveBoard_AI = copyMatrix(board); 
         var moveBoard_player = copyMatrix(board);
-        moveBoard_AI[x][y] = 2;
-        moveBoard_player[x][y] = 1;
-        var gameTester_AI = new GameTester(moveBoard_AI);
+        moveBoard_AI[x][y] = 2; //toggle to AI's playerID
+        moveBoard_player[x][y] = 1; //toggle to player's ID
+        //use each new board to instanciate new tester class
+        var gameTester_AI = new GameTester(moveBoard_AI); 
         var gameTester_player = new GameTester(moveBoard_player); 
-        //justify this move score
+        //justify this move [x,y]'s score
         //AI playerID = 2, player playerID = 1
         var AIScore = scoreEstimator(gameTester_AI, 2);
         var playerScore = scoreEstimator(gameTester_player, 1);
         var moveScore = AIScore / 2 + playerScore / 2;
+        //if AI has a win move => put here to win
+        //if player has a win move => put here to block
         if (AIScore === 101 || playerScore === 100) {
           return [x, y];
         }
+        //update score and move
         if (moveScore > maxScore) {
           maxScore = moveScore;
           move = [x, y];
         }
-        
-        //store the indexs that a neighbor player's stone
+        //store the [x, y] that has a player's stone around it
         if (hasNeighbors(board, x, y, 1)) {
           playerStonesXY.push([x, y]);
         }
@@ -41,7 +45,9 @@ var AI_main = (board) => {
   }
   return move;
 }
-
+//
+//Deep copy a matrix to new one
+// 
 var copyMatrix = (board) => {
   var newBoard = [];
   for (var x = 0; x < 19; x++) {
@@ -53,7 +59,9 @@ var copyMatrix = (board) => {
   }
   return newBoard;
 }
-
+//
+//Give [x, y] on board, if there is one neighbor around it, return true
+//
 var hasNeighbors = (board, x, y, targetNeighbor) => {
   if (board[x - 1] !== undefined){
     if (board[x - 1][y - 1] === targetNeighbor) {
@@ -87,7 +95,11 @@ var hasNeighbors = (board, x, y, targetNeighbor) => {
   }
   return false;
 }
-
+//
+//Given a gameTester including a current board with the new move,
+//test functions, and a current player,
+//calculate the highest score on this move.
+//
 var scoreEstimator = (gameTester, player) => {
   var playerScore = 0;
   var addition = player === 2 ? 1 : 0;
@@ -116,6 +128,9 @@ var scoreEstimator = (gameTester, player) => {
   return playerScore;
 }
 
+//
+// differnt types of strategies, return boolean of board has this shape or not
+//
 var form5 = (gameTester, player) => {
   return gameTester.hasAnyRowWins(player, 5) || gameTester.hasAnyColWins(player, 5)
       || gameTester.hasAnyMajorDiagonalWins(player, 5) || gameTester.hasAnyMinorDiagonalWins(player, 5);

@@ -165,7 +165,7 @@ class App extends React.Component {
     if (this.state.AI && this.state.currentPlayer === 'Dummy AI' && this.state.hasWinnerState !== 'Wins!') {
       var newBoard = this.state.board;
       var currentPlayerId = 2;
-      //decision here:
+      //AI decision here:
       var decisionXY = AI(newBoard);
       newBoard[decisionXY[0]][decisionXY[1]] = 2;
       
