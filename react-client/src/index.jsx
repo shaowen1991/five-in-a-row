@@ -117,43 +117,47 @@ class App extends React.Component {
   newGameOnClick () {
     var p1 = prompt("Please enter Player 1 name");
     var p2 = prompt("Please enter Player 2 name");
-    
-    var newBoard = [];
-    for (var i = 0; i < 19; i++) {
-      newBoard.push([]);
-      for (var j = 0; j < 19; j++) {
-        newBoard[i][j] = 0;
+    //when user click cancel on the prompt, p1/p2 will equal null
+    if (p1 !== null && p2 !== null) {
+      var newBoard = [];
+      for (var i = 0; i < 19; i++) {
+        newBoard.push([]);
+        for (var j = 0; j < 19; j++) {
+          newBoard[i][j] = 0;
+        }
       }
+      
+      this.setState({
+        p1: p1,
+        p2: p2,
+        board: newBoard,
+        currentPlayer: p1,
+        hasWinnerState: '\'s turn'
+      })
     }
     
-    this.setState({
-      p1: p1,
-      p2: p2,
-      board: newBoard,
-      currentPlayer: p1,
-      hasWinnerState: '\'s turn'
-    })
   }
 
   newGameWithAIOnClick() {
     var p1 = prompt("Please enter Player name");
-    
-    var newBoard = [];
-    for (var i = 0; i < 19; i++) {
-      newBoard.push([]);
-      for (var j = 0; j < 19; j++) {
-        newBoard[i][j] = 0;
+    //when user click cancel on the prompt, p1 will equal null
+    if (p1 !== null) {
+      var newBoard = [];
+      for (var i = 0; i < 19; i++) {
+        newBoard.push([]);
+        for (var j = 0; j < 19; j++) {
+          newBoard[i][j] = 0;
+        }
       }
+      this.setState({
+        p1: p1,
+        p2: 'Dummy AI',
+        board: newBoard,
+        currentPlayer: p1,
+        hasWinnerState: '\'s turn',
+        AI: true
+      })
     }
-    
-    this.setState({
-      p1: p1,
-      p2: 'Dummy AI',
-      board: newBoard,
-      currentPlayer: p1,
-      hasWinnerState: '\'s turn',
-      AI: true
-    })
   }
 
   componentWillMount() {
