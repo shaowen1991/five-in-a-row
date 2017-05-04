@@ -4,8 +4,8 @@ const ScoresTable = (props) => (
   <div className="gamescore">
     <br></br>
     <h4>Winner Board</h4>
-    {props.scores.map(score => 
-      <li>{score.player}   ||  Wins: {score.score}</li>
+    {props.scores.map((score, index) => 
+      <li key={index}>{score.player}   ||  Wins: {score.score}</li>
     )}
   </div>
 )
