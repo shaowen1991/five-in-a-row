@@ -1,2 +1,3 @@
 #mvp-starter
-This is a project I completed as a student at [hackreactor](http://hackreactor.com). This project was worked on with a pair.
+Five in a row
+This is a project I completed as a student at [hackreactor](http://hackreactor.com).
