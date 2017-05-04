@@ -1,2 +1,3 @@
 node_modules
 database/data/db/*
+react-client/dist/bundle.js
