@@ -49,9 +49,9 @@ app.post('/gameEnd', (req, res) => {
   console.log("Success put new score and game record into DB");
 })
 
-
-app.listen(3000, function() {
-  console.log('listening on port 3000!');
+var _port = process.env.PORT || 3000
+app.listen(_port, function() {
+  console.log('listening on port: ', _port);
 });
 
 
