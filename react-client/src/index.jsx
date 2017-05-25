@@ -132,11 +132,13 @@ class App extends React.Component {
       var socket = io.connect('/');
       socket.on('onconnected', function(data) {
         console.log('connected successfuly to the socket.io server. My server side ID is ', data.id);
-        socket.emit('new game', {
-          p1: p1
-        })
+
       });
-      
+
+      socket.emit('new game', {
+        p1: p1
+      });
+
       socket.on('game set', (data) => {
         console.log('get boardcast new game init state :'+ data.p1 +' ' + data.p2);
         this.setState({
@@ -150,7 +152,6 @@ class App extends React.Component {
           socket: socket
         })
       });
-
 
       socket.on('new piece', (data) => {
         console.log('client recieve boardcast of coordinate: ', data.cordinate);
@@ -169,15 +170,16 @@ class App extends React.Component {
             hasWinnerState: 'Wins!'
           })
         } else {
+          console.log('oopps');
           this.setState({
             currentPlayer: this.state.thisPlayer,
             board: newBoard
           })
         }
-      })
+      });
+      
       console.log('##########NEW GAME#########');
     }
-    
   }
 
   joinGameOnClick () {
@@ -189,10 +191,10 @@ class App extends React.Component {
       var socket = io.connect('/');
       socket.on('onconnected', function(data) {
         console.log('connected successfuly to the socket.io server. My server side ID is ', data.id);
-        socket.emit('join game', {
-          p2: p2
-        })
       });
+      socket.emit('join game', {
+        p2: p2
+      })
       
       socket.on('game set', (data) => {
         console.log('get boardcast join game init state :' + data.p1 +' ' + data.p2);
