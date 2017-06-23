@@ -1,6 +1,6 @@
 # Five in a row #
 
-> This is a project I completed as a student at [hackreactor](http://hackreactor.com).
+> Implementation of traditional Asian board game
 
 ## Set up ##
 
