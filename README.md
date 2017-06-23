@@ -12,7 +12,7 @@
   brew install mongodb
   //end of mongodb installing
   npm run react-dev
-  npm run db-start
+  npm run db-dev
   npm run server-dev
 ```
 
